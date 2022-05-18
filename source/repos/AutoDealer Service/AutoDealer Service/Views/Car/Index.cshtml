@@ -1,0 +1,53 @@
+﻿@using AutoDealer_Service.Models
+@model List<Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of available Cars</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Brand
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    @foreach (var car in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => car.Brand);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => car.Model);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => car.Year);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => car.Price);
+            </td>
+        </tr>
+        <td>
+            @Html.ActionLink("Edit", "EditCar", new { });
+            @Html.ActionLink("Details", "DetailsOfCar", new { });
+            @Html.ActionLink("Delete", "DeleteCar", new { });
+        </td>
+    }
+</table>
